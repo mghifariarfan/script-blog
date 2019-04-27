@@ -1480,6 +1480,7 @@ user is not using shrink to fit then we expand the header.
                     </div>
                   </b:includable>
                   <b:includable id='postBody'>
+                    <b:comment>Post body</b:comment>
                     <div class='post-body' expr:id='&quot;post-body-&quot; + data:post.id'>
                       <data:post.body/>
                     </div>
