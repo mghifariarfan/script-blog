@@ -35,7 +35,7 @@
   </b:if>
   <b:if cond='data:blog.pageType != &quot;error_page&quot;'>
     <meta expr:content='data:blog.metaDescription' name='description'/>
-    <script type='application/ld+json'>{ &quot;@context&quot;: &quot;http://schema.org&quot;, &quot;@type&quot;: &quot;WebSite&quot;, &quot;url&quot;: &quot;<data:blog.homepageUrl/>&quot;, &quot;potentialAction&quot;: { &quot;@type&quot;: &quot;SearchAction&quot;, &quot;target&quot;: &quot;<data:blog.homepageUrl/>?q={search_term}&quot;, &quot;query-input&quot;: &quot;required name=search_term&quot; } }</script>
+    <script type='application/ld+json'>{ &quot;@context&quot;: &quot;http://schema.org&quot;, &quot;@type&quot;: &quot;WebSite&quot;,&quot;name&quot;:&quot;<data:blog.title/>&quot;, &quot;url&quot;: &quot;<data:blog.homepageUrl/>&quot;, &quot;potentialAction&quot;: { &quot;@type&quot;: &quot;SearchAction&quot;, &quot;target&quot;: &quot;<data:blog.homepageUrl/>?q={search_term}&quot;, &quot;query-input&quot;: &quot;required name=search_term&quot; } }</script>
     <b:if cond='data:blog.homepageUrl != data:blog.url'>
       <meta expr:content='data:blog.pageName + &quot;, &quot; + data:blog.pageTitle + &quot;, &quot; + data:blog.title' name='keywords'/>
     </b:if></b:if>
@@ -1526,10 +1526,10 @@ user is not using shrink to fit then we expand the header.
     &quot;description&quot;: &quot;<b:eval expr='(data:post.body snippet { length: 255, links: false, linebreaks: false, ellipsis: true }).jsonEscaped'/>&quot;,
     <b:if cond='data:view.isSingleItem'>&quot;articleBody&quot;: &quot;<b:eval expr='(data:post.body).escaped'/>&quot;,</b:if>
     &quot;datePublished&quot;: &quot;<data:post.date.iso8601.jsonEscaped/>&quot;,
-    &quot;dateModified&quot;: &quot;<data:post.lastUpdated.iso8601.jsonEscaped/>&quot;,
+    &quot;dateModified&quot;: &quot;<data:post.lastUpdatedISO8601.jsonEscaped/>&quot;,
     &quot;image&quot;: {
         &quot;@type&quot;: &quot;ImageObject&quot;,
-        &quot;url&quot;: &quot;<b:eval expr='(data:post.featuredImage ? resizeImage(data:post.featuredImage, 1200, &quot;1200:630&quot;) : &quot;URL-GAMBAR-JIKA-POSTINGAN-NO-IMAGE&quot;).jsonEscaped'/>&quot;,
+        &quot;url&quot;: &quot;<b:eval expr='(data:post.thumbnailUrl ? resizeImage(data:post.thumbnailUrl, 1200, &quot;1200:630&quot;) : &quot;https://www.anewsia.xyz/favicon.ico&quot;).jsonEscaped'/>&quot;,
         &quot;height&quot;: <b:eval expr='data:post.featuredImage ? 630 : 348'/>,
         &quot;width&quot;: 1200
     },
@@ -1538,7 +1538,7 @@ user is not using shrink to fit then we expand the header.
         &quot;name&quot;: &quot;Blogger&quot;,
         &quot;logo&quot;: {
             &quot;@type&quot;: &quot;ImageObject&quot;,
-            &quot;url&quot;: &quot;URL-LOGO-ATAU-BANNER-BLOG&quot;,
+            &quot;url&quot;: &quot;https://www.anewsia.xyz/favicon.ico&quot;,
             &quot;width&quot;: 206,
             &quot;height&quot;: 60
         }
